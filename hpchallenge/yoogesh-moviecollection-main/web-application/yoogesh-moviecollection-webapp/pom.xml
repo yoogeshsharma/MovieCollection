@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>yoogesh-moviecollection-webapp</artifactId>
+	<packaging>war</packaging>
+	<parent>
+		<groupId>org.hpchallenge.moviecollection</groupId>
+		<artifactId>yoogesh-moviecollection-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<properties>
+		<tiles.version>2.2.2</tiles.version>
+	</properties>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.hpchallenge.moviecollection</groupId>
+			<artifactId>yoogesh-moviecollection-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hpchallenge.moviecollection</groupId>
+			<artifactId>yoogesh-moviecollection-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>yoogesh-moviecollection-webapp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.10</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8081</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
