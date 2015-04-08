@@ -43,6 +43,22 @@ public class MovieRepoDAOImpl implements MovieRepoDAO{
 			throw new DAOException(e);
 		}
 	}
+	
+	public MovieRepoDO getMovieDetails(int videoId) {
+		LOGGER.info("In getMovieDetails(int) Method");
+		
+		final String query = "SELECT * FROM MOVIE M WHERE M.ID = ?";
+		MovieRepoDO  movieRepoDo = null;
+		
+		try {
+			movieRepoDo = new JdbcTemplate(dataSource).queryForObject(query,
+					new Object[] {videoId},new MovieRepoMapper());
+		} catch (Throwable e) {
+			LOGGER.error("Exception occur in getMovieDetails(int) + ", e);
+			throw new DAOException(e);
+		}
+		return movieRepoDo;
+	}
 
 	/**
 	 * @return the dataSource

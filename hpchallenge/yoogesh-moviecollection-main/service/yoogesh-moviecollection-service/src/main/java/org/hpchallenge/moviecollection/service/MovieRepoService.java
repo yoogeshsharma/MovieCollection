@@ -11,5 +11,6 @@ import org.hpchallenge.moviecollection.commons.dos.MovieRepoDO;
 public interface MovieRepoService {
 	
 	List<MovieRepoDO> getAllMovie();
+	MovieRepoDO getMovieDetails(int videoId);
 
 }

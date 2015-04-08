@@ -18,7 +18,8 @@ public class MovieRepoDO implements Comparable<MovieRepoDO>{
 	private int 	videoId;
 	private String 	videoTitle;
 	private String 	videoFormat;
-	private String 	videoLength;
+	private int 	videoLengthMin;
+	private int 	videoLengthSec;
 	private int 	videoReleaseYear;
 	private int 	videoRating;
 	
@@ -42,16 +43,14 @@ public class MovieRepoDO implements Comparable<MovieRepoDO>{
 		}
 	}
 	
-	
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "MovieRepoDO [videoId=" + videoId + ", videoTitle=" + videoTitle
-				+ ", videoFormat=" + videoFormat + ", videoLength="
-				+ videoLength 
+				+ ", videoFormat=" + videoFormat + ", videoLengthMin="
+				+ videoLengthMin + ", videoLengthSec=" + videoLengthSec
 				+ ", videoReleaseYear=" + videoReleaseYear + ", videoRating="
 				+ videoRating + "]";
 	}
@@ -78,12 +77,18 @@ public class MovieRepoDO implements Comparable<MovieRepoDO>{
 	}
 
 	/**
-	 * @return the videoLength
+	 * @return the videoLengthMin
 	 */
-	public String getVideoLength() {
-		return videoLength;
+	public int getVideoLengthMin() {
+		return videoLengthMin;
 	}
 
+	/**
+	 * @return the videoLengthSec
+	 */
+	public int getVideoLengthSec() {
+		return videoLengthSec;
+	}
 
 	/**
 	 * @return the videoReleaseYear
@@ -121,10 +126,17 @@ public class MovieRepoDO implements Comparable<MovieRepoDO>{
 	}
 
 	/**
-	 * @param videoLength the videoLength to set
+	 * @param videoLengthMin the videoLengthMin to set
 	 */
-	public void setVideoLength(String videoLength) {
-		this.videoLength = videoLength;
+	public void setVideoLengthMin(int videoLengthMin) {
+		this.videoLengthMin = videoLengthMin;
+	}
+
+	/**
+	 * @param videoLengthSec the videoLengthSec to set
+	 */
+	public void setVideoLengthSec(int videoLengthSec) {
+		this.videoLengthSec = videoLengthSec;
 	}
 
 	/**

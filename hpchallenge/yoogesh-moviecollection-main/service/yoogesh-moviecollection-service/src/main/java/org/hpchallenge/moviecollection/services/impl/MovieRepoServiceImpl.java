@@ -28,6 +28,14 @@ public class MovieRepoServiceImpl implements MovieRepoService{
 			throw new ServiceException(e);
 		}
 	}
+	
+	public MovieRepoDO getMovieDetails(int videoId) {
+		try{
+			return videoRepoDAO.getMovieDetails(videoId);
+		}catch(DAOException e){
+			throw new ServiceException(e);
+		}
+	}
 
 	/**
 	 * @return the videoRepoDAO
