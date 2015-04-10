@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
 <!DOCTYPE html>
 <html lang="en">
-  <%@ include file="../../header.html" %>
+  <%@ include file="../../header.jsp" %>
   <body>
 	<div>
 		<div class="panel panel-primary">

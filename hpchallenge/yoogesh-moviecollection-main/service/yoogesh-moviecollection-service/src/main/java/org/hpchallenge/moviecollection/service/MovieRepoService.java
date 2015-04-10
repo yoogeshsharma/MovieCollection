@@ -10,7 +10,14 @@ import org.hpchallenge.moviecollection.commons.dos.MovieRepoDO;
  */
 public interface MovieRepoService {
 	
-	List<MovieRepoDO> getAllMovie();
-	MovieRepoDO getMovieDetails(int videoId);
+public List<MovieRepoDO> getAllMovie();
+	
+	public MovieRepoDO getMovieDetails(int videoId);
+	
+	public int DeleteMovie(int videoId);
+	
+	public int updateMovie(MovieRepoDO movieRepoDO);
+	
+	public int insertMovie(MovieRepoDO movieRepoDO);
 
 }

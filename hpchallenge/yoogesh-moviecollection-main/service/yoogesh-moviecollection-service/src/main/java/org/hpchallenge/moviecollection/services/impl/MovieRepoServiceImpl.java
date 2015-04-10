@@ -11,11 +11,15 @@ import org.hpchallenge.moviecollection.dao.exception.DAOException;
 import org.hpchallenge.moviecollection.exception.ServiceException;
 import org.hpchallenge.moviecollection.service.MovieRepoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author yoogesh.sharma
  *
  */
+@Service
+@Transactional
 public class MovieRepoServiceImpl implements MovieRepoService{
 	
 	@Autowired
@@ -36,6 +40,32 @@ public class MovieRepoServiceImpl implements MovieRepoService{
 			throw new ServiceException(e);
 		}
 	}
+	
+	public int DeleteMovie(int videoId) {
+		try{
+			return videoRepoDAO.DeleteMovie(videoId);
+		}catch(DAOException e){
+			throw new ServiceException(e);
+		}
+	}
+	
+	public int insertMovie(MovieRepoDO movieRepoDO) {
+		try{
+			return videoRepoDAO.insertMovie(movieRepoDO);
+		}catch(DAOException e){
+			throw new ServiceException(e);
+		}
+	}
+	
+	public int updateMovie(MovieRepoDO movieRepoDO) {
+		try{
+			return videoRepoDAO.updateMovie(movieRepoDO);
+		}catch(DAOException e){
+			throw new ServiceException(e);
+		}
+	}
+	
+	
 
 	/**
 	 * @return the videoRepoDAO

@@ -7,7 +7,7 @@
     <title>Yoogesh - Movie Manager</title>
 
     <!-- Bootstrap -->    
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>	
 
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,16 +17,14 @@
   </head>
   <body>
 	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-				</ul>				
-			</div>			
-		</div>		
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="${pageContext.request.contextPath}/getAllMovie.htm">Home<span class="sr-only">(current)</span></a></li>
+		</ul>				
 	</nav>
+	
+	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
+     
   </body>
 </html>

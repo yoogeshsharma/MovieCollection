@@ -3,6 +3,9 @@
  */
 package org.hpchallenge.moviecollection.commons.dos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Domain Object for Video Repository
