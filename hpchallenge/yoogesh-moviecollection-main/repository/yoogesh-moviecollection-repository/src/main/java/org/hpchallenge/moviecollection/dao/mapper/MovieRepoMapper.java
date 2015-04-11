@@ -19,10 +19,10 @@ public class MovieRepoMapper implements RowMapper<MovieRepoDO> {
 		MovieRepoDO _videoRepoDo = new MovieRepoDO();
 		_videoRepoDo.setVideoId(rs.getInt("ID"));
 		_videoRepoDo.setVideoTitle(rs.getString("TITLE"));
-		_videoRepoDo.setVideoFormat(rs.getString("FORMAT"));
+		_videoRepoDo.setVideoFormat(rs.getString("FORMATS"));
 		_videoRepoDo.setVideoLengthMin(rs.getInt("LENGTH_MIN"));
 		_videoRepoDo.setVideoLengthSec(rs.getInt("LENGTH_SEC"));
-		_videoRepoDo.setVideoReleaseYear(rs.getInt("RELEASE"));
+		_videoRepoDo.setVideoReleaseYear(rs.getInt("RELEASES"));
 		_videoRepoDo.setVideoRating(rs.getInt("RATING"));
 		return _videoRepoDo;
 	}

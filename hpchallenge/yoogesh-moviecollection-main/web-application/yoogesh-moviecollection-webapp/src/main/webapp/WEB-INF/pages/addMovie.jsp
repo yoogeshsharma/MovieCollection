@@ -6,6 +6,7 @@
     
 <!DOCTYPE html>
 <html lang="en">
+  <%@ include file="../../taglib.jsp" %>
   <%@ include file="../../header.jsp" %>
   <body>
 	<div>
@@ -14,19 +15,18 @@
 			<div class="panel-body">
 
 
-				<form:form commandName="movie" cssStyle="form-horizontal" role="form">
+				<form:form commandName="movie" cssStyle="form-horizontal" role="form" data-toggle="validator">
 					<div class="form-group">
 						<label for="videoTitle" class="col-md-2"> Title :</label>
 						<div class="col-md-10">
-							<form:input path="videoTitle" cssClass="form-control" maxlength="50" placeholder="Movie Title"/>							
+							<form:input path="videoTitle" cssClass="form-control" maxlength="50" placeholder="Movie Title" required="true"/>							
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="format" class="col-md-2"> Format : </label>
 						<div class="col-md-10">
-							<form:select path="videoFormat" multiple="false" cssClass="form-control">
-								<form:option value=""></form:option>
+							<form:select path="videoFormat" multiple="false" cssClass="form-control" required="true">								
 								<form:options items="${mvFormatList}"/>
 							</form:select>							
 						</div>
@@ -35,17 +35,17 @@
 					<div class="form-group">
 						<label class="col-md-2"> Length :</label>
 						<div class="col-md-5">
-							<form:input path="videoLengthMin" cssClass="form-control" placeholder="Min"/>
+							<form:input path="videoLengthMin" cssClass="form-control" placeholder="Min" type="number" required="true"/>
 						</div>
 						<div class="col-md-5">
-							<form:input path="videoLengthSec" cssClass="form-control" placeholder="Sec"/>
+							<form:input path="videoLengthSec" cssClass="form-control" placeholder="Sec" type="number" required="true"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="videoReleaseYear" class="col-md-2">Release Year :</label>
 						<div class="col-md-10">
-							<form:select path="videoReleaseYear" multiple="false" cssClass="form-control">								
+							<form:select path="videoReleaseYear" multiple="false" cssClass="form-control" required="true">								
 								<form:options items="${mvReleaseYearList}"/>
 							</form:select>
 						</div>
@@ -72,10 +72,7 @@
 						<div class="col-md-2"></div>
 						<div class="col-md-1">							
 							<button type="submit" class="btn btn-primary">ADD</button>							
-						</div>
-						<div class="col-md-9">
-							<button type="button" class="btn btn-primary">BACK</button>
-						</div>
+						</div>						
 					</div>
 				</form:form>
 

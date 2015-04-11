@@ -81,8 +81,8 @@ public class MovieRepoDAOImpl implements MovieRepoDAO{
 		int updateStatus = 0;
 		String sqlQuery = null;
 		try{
-			sqlQuery = "UPDATE MOVIE SET  TITLE=?, FORMAT=?, LENGTH_MIN=?, " +
-					"LENGTH_SEC=?, RELEASE=?, RATING=? WHERE ID = ?";
+			sqlQuery = "UPDATE MOVIE SET  TITLE=?, FORMATS=?, LENGTH_MIN=?, " +
+					"LENGTH_SEC=?, RELEASES=?, RATING=? WHERE ID = ?";
 			
 			updateStatus = new JdbcTemplate(dataSource).update(sqlQuery, new Object[]{movieRepoDO.getVideoTitle(),
 					movieRepoDO.getVideoFormat(),movieRepoDO.getVideoLengthMin(),movieRepoDO.getVideoLengthSec(),
@@ -102,7 +102,7 @@ public class MovieRepoDAOImpl implements MovieRepoDAO{
 		int id = 0;
 		int insertStatus = 0;
 		try{
-			sqlQuery = "INSERT INTO MOVIE (ID,TITLE,FORMAT,RELEASE,RATING,LENGTH_MIN,LENGTH_MAX) VALUES(?,?,?,?,?,?,?)";
+			sqlQuery = "INSERT INTO MOVIE (ID,TITLE,FORMATS,RELEASES,RATING,LENGTH_MIN,LENGTH_SEC) VALUES(?,?,?,?,?,?,?)";
 			id = getMaxId("Movie", "ID");
 			
 			insertStatus = new JdbcTemplate(dataSource).update(sqlQuery, new Object[]{id,movieRepoDO.getVideoTitle(),

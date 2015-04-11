@@ -2,20 +2,33 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
 
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<html lang="en">
+<%@ include file="../../taglib.jsp" %>
 <script>
+	var toDelId = 0;
 	jQuery(document).ready(function($){		
     	$('#movieListTblId').dataTable();
+    	
+    	$('button[name="delMovie"]').click(function() {
+    		bootbox.confirm("Are you sure to delete Movie ?", function(result) {
+    		    if (result) {    		        
+    		        $.ajax({
+     		              url: toDelId+'/deleteMovie.htm',   		              
+     		              success: function(data) {     		            	 
+     		              	 //refresh the current url
+     		              	 location.reload();     		              	
+     		              }
+     		        });
+    		    } 
+    		});
+    	  });
 	});
+	
 </script>
 
 <%@ include file="../../header.jsp"%>
 <body>
-
 	<div>
 		<div class="panel panel-primary">
 			<div class="panel-heading"><h4>Movie List</h4></div>
@@ -41,16 +54,18 @@
 									<td>${cnt.count}</td>
 									<td>${listValue.videoTitle}</td>
 									<td>${listValue.videoFormat}</td>
-									<td>${listValue.videoLengthMin} Min ${listValue.videoLengthMin} Sec</td>
+									<td>${listValue.videoLengthMin} Min ${listValue.videoLengthSec} Sec</td>
 									<td>${listValue.videoReleaseYear}</td>
 									<td>${listValue.videoRating}</td>
 									<td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-primary"
-												onclick="location.href='${listValue.videoId}/editMovie.htm'">Edit</button>
-
-											<button type="button" class="btn btn-primary"
-												onclick="location.href='${listValue.videoId}/deleteMovie.htm'">Delete</button>
+											<button type="button" class="btn btn-primary btn-xs"
+												onclick="location.href='${listValue.videoId}/editMovie.htm'">Edit</button>											
+											<button class='btn btn-danger btn-xs' type="button"
+												    onclick="toDelId=${listValue.videoId}" 
+													name="delMovie" value="delete">
+													<span class="fa fa-times"></span> Delete
+											</button>
 										</div>
 									</td>
 								</tr>
@@ -61,6 +76,15 @@
 						onclick="location.href='addMovie.htm'">Add</button>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div id="confirm" class="modal hide fade">
+		<div class="modal-body">Are you sure to delete this Movie?</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-primary"
+				id="delete">Delete</button>
+			<button type="button" data-dismiss="modal" class="btn">Cancel</button>
 		</div>
 	</div>
 
